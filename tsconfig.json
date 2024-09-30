@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.paths.json",
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["ESNext"],
+    "sourceMap": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "outDir": "./dist/",
+    "alwaysStrict": true,
+    "importHelpers": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "types": ["node"],
+    "preserveConstEnums": true,
+    "moduleResolution": "Bundler",
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["build.ts", "src/**/*"],
+  "exclude": ["built/**/*", "node_modules/**/*"]
+}
