@@ -1,7 +1,12 @@
 import Fastify from 'fastify';
 
+import { testingRoutes } from '@routes';
+
 export async function setup() {
   const server = Fastify({});
+
+  // Register routes
+  server.register(testingRoutes, { prefix: '/' });
 
   try {
     // TODO: use centralized env config file

@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@routes/*": ["./src/routes/*"],
       "@server/*": ["./src/server/*"],
+      "@routes": ["./src/routes/index.ts"],
       "@server": ["./src/server/index.ts"]
     }
   }
