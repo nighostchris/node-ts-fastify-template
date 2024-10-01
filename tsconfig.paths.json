@@ -2,8 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@logger": ["./src/logger.ts"],
+      "@config": ["./src/config.ts"],
+      "@utils/*": ["./src/utils/*"],
       "@routes/*": ["./src/routes/*"],
       "@server/*": ["./src/server/*"],
+      "@utils": ["./src/utils/index.ts"],
       "@routes": ["./src/routes/index.ts"],
       "@server": ["./src/server/index.ts"]
     }
