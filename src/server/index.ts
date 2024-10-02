@@ -1,23 +1,54 @@
-import Fastify from 'fastify';
+import fastify from 'fastify';
+import swagger from '@fastify/swagger';
+import swaggerUI from '@fastify/swagger-ui';
 
 import { env } from '@config';
-import { logger } from '@logger';
 import { testingRoutes } from '@routes';
 
 export async function setup() {
-  const server = Fastify({
+  const server = fastify({
     logger: false,
   });
+
+  if (env.NODE_ENV === 'development') {
+    // Register swagger
+    await server.register(swagger, {
+      openapi: {
+        openapi: '3.0.0',
+        info: {
+          title: 'Node TS Fastify Template Swagger',
+          description: 'Node TS Fastify Template API Endpoint Collection',
+          version: '0.0.0',
+        },
+        servers: [
+          {
+            url: `http://${env.WEB_SERVER_HOST}:${env.WEB_SERVER_PORT}`,
+            description: `Local`,
+          },
+        ],
+      },
+    });
+
+    // Register swagger UI
+    await server.register(swaggerUI, {
+      routePrefix: '/docs',
+      uiConfig: {
+        deepLinking: true,
+        docExpansion: 'full',
+      },
+    });
+  }
 
   // Register routes
   server.register(testingRoutes, { prefix: '/' });
 
-  try {
-    await server.listen({ host: env.WEB_SERVER_HOST, port: env.WEB_SERVER_PORT });
-    logger.info(`server listening on http://${env.WEB_SERVER_HOST}:${env.WEB_SERVER_PORT}`);
-  } catch (error) {
-    // TODO: switch to logger later on
-    logger.error(error);
-    process.exit(1);
+  // Load plugins
+  await server.ready();
+
+  if (env.NODE_ENV === 'development') {
+    // Instantiate swagger
+    server.swagger();
   }
+
+  return server;
 }

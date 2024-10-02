@@ -14,7 +14,7 @@ export const logger = pino({
           target: 'pino-pretty',
           options: {
             messageKey: 'message',
-            translateTime: 'UTC:yyyy-mm-dd"T"HH:MM:ss.l"Z"',
+            translateTime: 'SYS:yyyy-mm-dd HH:MM:ss.l',
           },
         }
       : undefined,
