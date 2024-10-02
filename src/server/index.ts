@@ -1,5 +1,6 @@
 import fastify from 'fastify';
 import swagger from '@fastify/swagger';
+import formbody from '@fastify/formbody';
 import swaggerUI from '@fastify/swagger-ui';
 
 import { env } from '@config';
@@ -38,6 +39,9 @@ export async function setup() {
       },
     });
   }
+
+  // Enable parsing URL-encoded form data
+  server.register(formbody);
 
   // Register routes
   server.register(testingRoutes, { prefix: '/' });
