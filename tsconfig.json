@@ -11,13 +11,13 @@
     "importHelpers": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "types": ["node"],
     "preserveConstEnums": true,
     "moduleResolution": "Bundler",
     "noFallthroughCasesInSwitch": true,
+    "types": ["node", "vitest/globals"],
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["build.ts", "src/**/*"],
-  "exclude": ["built/**/*", "node_modules/**/*"]
+  "exclude": ["built/**/*", "node_modules/**/*"],
+  "include": ["build.ts", "src/**/*", "tests/**/*"]
 }
