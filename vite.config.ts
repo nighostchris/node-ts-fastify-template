@@ -23,8 +23,8 @@ export default defineConfig({
   resolve: {
     alias: {
       // Please align it with tsconfig.paths.json
+      '@api': path.resolve(__dirname, './src/api'),
       '@utils': path.resolve(__dirname, './src/utils'),
-      '@routes': path.resolve(__dirname, './src/routes'),
       '@server': path.resolve(__dirname, './src/server'),
       '@config': path.resolve(__dirname, './src/config.ts'),
       '@logger': path.resolve(__dirname, './src/logger.ts'),

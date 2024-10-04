@@ -4,7 +4,7 @@ import formbody from '@fastify/formbody';
 import swaggerUI from '@fastify/swagger-ui';
 
 import { env } from '@config';
-import { testingRoutes } from '@routes';
+import { testingRoutes } from '@api';
 
 export async function setup() {
   const server = fastify({
@@ -44,7 +44,7 @@ export async function setup() {
   server.register(formbody);
 
   // Register routes
-  server.register(testingRoutes, { prefix: '/' });
+  server.register(testingRoutes, { prefix: '/api/v1/testing' });
 
   // Load plugins
   await server.ready();

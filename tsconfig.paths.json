@@ -4,11 +4,11 @@
     "paths": {
       "@logger": ["./src/logger.ts"],
       "@config": ["./src/config.ts"],
+      "@api/*": ["./src/api/*"],
       "@utils/*": ["./src/utils/*"],
-      "@routes/*": ["./src/routes/*"],
       "@server/*": ["./src/server/*"],
+      "@api": ["./src/api/index.ts"],
       "@utils": ["./src/utils/index.ts"],
-      "@routes": ["./src/routes/index.ts"],
       "@server": ["./src/server/index.ts"]
     }
   }
